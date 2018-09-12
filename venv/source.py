@@ -46,8 +46,11 @@ while loop:
             if len(key) <= index:
                 break
             if workString.find(key[index]) != -1:  # if kw in tweet, write tweet and quit
-                user = str(api.get_user(link).id)
-                writeTo.write(time + "\n" + link + "\n" + user + '\n' + string + "\n\n")
+                try: # if the user still exists, add them to file
+                    user = str(api.get_user(link).id)
+                    writeTo.write(time + "\n" + link + "\n" + user + '\n' + string + "\n\n")
+                except: # if user no longer exists, ignore the tweet
+                    user = 'null'
                 break
             index += 1
 
