@@ -1,0 +1,7 @@
+T	date
+U	http://twitter.com/person
+W	information keyword ache
+
+T	date
+U	http://twitter.com/person1
+W	no key word here

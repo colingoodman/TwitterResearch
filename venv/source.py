@@ -9,9 +9,9 @@ auth.set_access_token('247468435-MM16zZOkuNPIL7qE7aNRfWDs3YRx3VSmV0xWKSed', '5Bx
 api = tweepy.API(auth)
 
 # preparing files
-file = open('tweets2009-06-num2.txt', 'r', encoding="utf8")
+file = open('test.txt', 'r', encoding="utf8")
 keyWords = open('key.txt', 'r', encoding="utf8")
-writeTo = open('result2.txt', 'w', encoding="utf8")
+writeTo = open('resultTest.txt', 'w', encoding="utf8")
 
 # pull key words and organize them into array
 print('reading in key\n')
@@ -19,7 +19,7 @@ loop = True
 key = []  # array of key words (KWs)
 int = 0
 while loop:
-    string = keyWords.readline().rstrip()
+    string = keyWords.readline().rstrip().lower()
     if len(string) == 0:
         loop = False
     else:
