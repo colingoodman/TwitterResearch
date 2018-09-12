@@ -42,6 +42,7 @@ while loop:
         loop = False
     else:
         index = 0
+        print('Sorting...')
         while loopThru:  # loop thru array of KWs
             if len(key) <= index:
                 break
