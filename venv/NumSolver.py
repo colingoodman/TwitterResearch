@@ -1,5 +1,6 @@
 # Colin Goodman - 2018
 # Information propagation in social media networks
+# This file searches through the tweet text files and organizes all the users by ID
 
 import tweepy
 
