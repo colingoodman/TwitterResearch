@@ -2,14 +2,10 @@ T	2009-06-12 08:47:56
 U	http://twitter.com/bombero2b
 W	Trying WhosAround app on iPhone. http://whos-around.com/add/1080-9183
 
-T	2009-06-12 08:47:56
-U	http://twitter.com/davincih
-W	Big RT thanks to: @edwardvirtually @mclinklove @GlmmC @DiggStarcasm @phaoloo @exiter @Zacharycohen
+T	date
+U	http://twitter.com/TEST
+W	keyword
 
-T	2009-06-12 08:47:56
-U	http://twitter.com/foromcom
-W	http://forom.com/r.php?r=459 Quid d'Amy Acker rt et de Tahmoh Penikett dans Dollhouse ?
-
-T	2009-06-12 08:47:56
-U	http://twitter.com/greglee01
-W	Hey if you want to go Disney world, for more information visit here..http://www.info2wdw.com
+T	date1
+U	http://twitter.com/TEST1
+W	keyword
