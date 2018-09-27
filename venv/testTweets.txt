@@ -4,8 +4,8 @@ W	Trying WhosAround app on iPhone. http://whos-around.com/add/1080-9183
 
 T	date
 U	http://twitter.com/TEST
-W	keyword
+W	keyword this is a test tweet, it is for testing
 
 T	date1
 U	http://twitter.com/TEST1
-W	keyword
+W	keyword this is another (but different!) message for testing

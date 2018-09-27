@@ -1,10 +1,8 @@
 date
 TEST
-TEST
-keyword
+keyword this is a test tweet, it is for testing
 
 date1
 TEST1
-TEST1
-keyword
+keyword this is another (but different!) message for testing
 

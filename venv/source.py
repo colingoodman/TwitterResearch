@@ -31,25 +31,36 @@ loop = True
 loopThru = True
 while loop:
     time = file.readline().rstrip()
+
+    # The following if statements catch if there is a formatting issue.
+    if time.find('T\t') == -1:
+        print('Tweet not formatted properly. (T)')
+        break;
     link = file.readline().rstrip()
+    if link.find('U\t') == -1:
+        print('Tweet not formatted properly. (U)')
+        break;
     string = file.readline().rstrip()
-    workString = string.lower()
+    if string.find('W\t') == -1:
+        print('Tweet not formatted properly. (W)')
+        break;
+
     link = link.replace('U\thttp://twitter.com/', '')
     time = time.replace('T\t', '')
     string = string.replace('W\t', '')
+    workString = string.lower()
 
     if len(string) == 0:  # if end of text file, stop
         loop = False
     else:
         index = 0
-        print('Sorting...')
         while loopThru:  # loop thru array of KWs
             if len(key) <= index:
                 break
             if workString.find(key[index]) != -1:  # if kw in tweet, write tweet and quit
                 try: # if the user still exists, add them to file
-                    #user = str(api.get_user(link).id)
-                    writeTo.write(time + "\n" + link + "\n" + link + '\n' + string + "\n\n")
+                    # user = str(api.get_user(link).id)
+                    writeTo.write(time + "\n" + link + '\n' + string + "\n\n")
                 except: # if user no longer exists, ignore the tweet
                     user = 'null'
                 break
