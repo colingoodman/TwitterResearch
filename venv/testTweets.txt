@@ -1,11 +1,11 @@
 T	2009-06-12 08:47:56
-U	http://twitter.com/bombero2b
-W	Trying WhosAround app on iPhone. http://whos-around.com/add/1080-9183
+U	http://twitter.com/realDonaldTrump
+W	Fake news!
 
 T	date
-U	http://twitter.com/TEST
+U	http://twitter.com/realDonaldTrump
 W	keyword this is a test tweet, it is for testing
 
 T	date1
-U	http://twitter.com/TEST1
+U	http://twitter.com/ColinBadPerson
 W	keyword this is another (but different!) message for testing

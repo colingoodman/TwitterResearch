@@ -1,1 +1,10 @@
-keyword
+Red
+Blue
+Green
+Orange
+Purple
+Yellow
+Brown
+Black
+White
+Pink

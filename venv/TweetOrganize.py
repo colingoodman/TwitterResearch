@@ -3,18 +3,20 @@
 # This file creates a text file for every user in the network
 # This file will also probably take a very long time to run completely if there are a lot of users
 
+import os
 import tweepy
 
 # tweepy stuff
-auth = tweepy.OAuthHandler('0oG3gXlR17hHDfrmK5ICkR6nV', '2oOe6SxCaBgNz7PTtwriSTVj5Vx6lkZdoAkb4nM0BpEtZl0BOz')
-auth.set_access_token('247468435-MM16zZOkuNPIL7qE7aNRfWDs3YRx3VSmV0xWKSed', '5Bx6AbxFUdv6zh0xMU9BAwKhBuhOq0fR8inNme6MK7bVx')
+
 api = tweepy.API(auth)
 
-# make sure these files exist
-file = open('tweets.txt', 'r', encoding="utf8")
-writeTo = open('userIDs.txt', 'w', encoding="utf8")
+targetTweets = 'testTweets.txt'  # file we are opening
+
+file = open(targetTweets, 'r')  # , encoding="utf8")
+writeTo = open('userIDs.txt', 'w')  # , encoding="utf8")
 
 users = []  # list of tuples of users (username, user ID)
+deadUser = 0;
 
 loop = True
 
@@ -23,6 +25,7 @@ while loop:  # build list
     link = file.readline().rstrip()  # user
     file.readline()  # tweet
     link = link.replace('U\thttp://twitter.com/', '')
+    file.readline()
 
     if len(link) == 0:  # if end of text file, stop
         loop = False
@@ -36,28 +39,50 @@ while loop:  # build list
                 check = True
 
         if not check:  # if user not in list, add them to it
-            userTuple = (link, api.get_User(link).id)
-            users.Add(userTuple)
+            try:
+                idNum = str(api.get_user(link).id)
+                userTuple = (link, idNum)
+                users.append(userTuple)
+                writeTo.write(idNum)
+                writeTo.write(idNum)
+            except:
+                deadUser = deadUser + 1
 
 file.close()
+print('Number of invalid usernames: ')
+print(deadUser)
+
+here = os.path.dirname(os.path.realpath(__file__))
+subdir = "users"
+os.mkdir(os.path.join(here, subdir))
 
 for node in users:  # for each iteration of this loop, a new user file is created
-    newFile = open(node[1] + '.txt', 'w', encoding="utf8")  # create text file for user
-    file = open('tweets.txt', 'r', encoding="utf8")
+    fileName = str(node[1]).__add__('.txt')
+    file = open(targetTweets, 'r')  # , encoding="utf8")
     loop = True
+
+    filePath = os.path.join(here, subdir, fileName)
+
+    newFile = open(filePath, 'w')
 
     while loop:  # loop thru tweet file again
         time = file.readline()
         link = file.readline().rstrip()
+        link = link.replace('U\thttp://twitter.com/', '')
         message = file.readline()
+        file.readline()
 
         if len(link) == 0:  # end while loop if at end of tweet file
             loop = False
             continue
 
-        link = link.replace('U\thttp://twitter.com/', '')
-
         if link == node[0]:  # if given tweet was tweeted by user, add it to the new file
             newFile.write(time)
             newFile.write(message)
-            newFile.write()
+            newFile.write('')
+
+file.close()
+newFile.close()
+writeTo.close()
+
+print('..Success')

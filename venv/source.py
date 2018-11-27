@@ -6,14 +6,12 @@
 import tweepy
 
 # tweepy stuff
-auth = tweepy.OAuthHandler('0oG3gXlR17hHDfrmK5ICkR6nV', '2oOe6SxCaBgNz7PTtwriSTVj5Vx6lkZdoAkb4nM0BpEtZl0BOz')
-auth.set_access_token('247468435-MM16zZOkuNPIL7qE7aNRfWDs3YRx3VSmV0xWKSed', '5Bx6AbxFUdv6zh0xMU9BAwKhBuhOq0fR8inNme6MK7bVx')
 api = tweepy.API(auth)
 
 # preparing files
-file = open('testTweets.txt', 'r', encoding="utf8")
-keyWords = open('testKey.txt', 'r', encoding="utf8")
-writeTo = open('resultTest.txt', 'w', encoding="utf8")
+file = open('tweets2009-06.txt.001', 'r', )  # encoding="utf8")
+keyWords = open('testKey.txt', 'r', )  # encoding="utf8")
+writeTo = open('results.txt', 'w', )  # encoding="utf8")
 
 # pull key words and organize them into array
 print('reading in key\n')
@@ -61,7 +59,7 @@ while loop:
                 break
             if workString.find(key[index]) != -1:  # if kw in tweet, write tweet and quit
                 try: # if the user still exists, add them to file
-                    # user = str(api.get_user(link).id)
+                    user = str(api.get_user(link).id)
                     writeTo.write(time + "\n" + link + '\n' + string + "\n\n")
                 except: # if user no longer exists, ignore the tweet
                     user = 'null'
