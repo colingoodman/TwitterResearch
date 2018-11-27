@@ -1,7 +1,7 @@
 # Colin Goodman - 2018
 # Information propagation in social media networks
 # This file creates a text file for every user in the network
-# This file will also probably take a very long time to run completely
+# This file will also probably take a very long time to run completely if there are a lot of users
 
 import tweepy
 

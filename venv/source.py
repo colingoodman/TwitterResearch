@@ -1,6 +1,8 @@
 # Colin Goodman - 2018
 # Information propagation in social media networks
 
+# !! this file is no longer used, I kept it for an example on using Tweepy's APIs
+
 import tweepy
 
 # tweepy stuff
