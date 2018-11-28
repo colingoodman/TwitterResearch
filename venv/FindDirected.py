@@ -1,13 +1,14 @@
 # Colin Goodman
-# this file combs thru a given user file and finds where other users have been mentioned
+# this file combs through a given user file and finds where other users have been mentioned
 # 2018
 
-import tweepy
-
-#auth = tweepy.OAuthHandler
-
 user = input("User: ")
-file = open(user, 'r')
+
+try:
+    file = open(user, 'r')
+except FileNotFoundError:
+    print("Unknown user. Perhaps their file has not been made yet?")
+    exit()
 
 loop = True
 users_mentioned = []  # list of users mentioned by this user
@@ -24,9 +25,9 @@ while loop:
         x = 0  # used to iterate thru tweet
         while x < content.sizeof():  # getting the mentioned user's handle
             if content[x] == '@':
-                x += 1
                 while content[x] != ' ':
                     target += content[x]
+            x += 1
         users_mentioned.add(target)
 
 file.close()
