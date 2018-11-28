@@ -8,7 +8,7 @@ fileName = user + "data"
 
 user_file = open(fileName, 'r')
 
-user_file.readline()
+user_file.readline()  # skip past the lines in the file we do not need
 user_file.readline()
 user_file.readline()
 
@@ -16,10 +16,9 @@ targets = user_file.readline().split()
 
 counter = 0
 
+# for every person that has mentioned this user, find how many times they mentioned this user
 for target in targets:
-    counter = 0
     new_file = open(target, 'r')
-
     loop = True
     while loop:
         line = new_file.readline()

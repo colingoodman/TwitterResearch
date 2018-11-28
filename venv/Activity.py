@@ -2,8 +2,6 @@
 # this file determines a given user's activity index
 # 2018
 
-import tweepy
-
 user = input("User: ")
 file = open(user, "r")
 
